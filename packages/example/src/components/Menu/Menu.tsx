@@ -6,32 +6,35 @@ import {
 } from 'react-tv-space-navigation';
 import { useMenuContext } from './MenuContext';
 import { Button } from '../../design-system/components/Button';
-import { useCallback, useEffect, useRef } from 'react';
-import { Animated, Dimensions } from 'react-native';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { Animated, Dimensions, TouchableOpacity, View, } from 'react-native';
 import styled from '@emotion/native';
 import { Typography } from '../../design-system/components/Typography';
 import { Spacer } from '../../design-system/components/Spacer';
 import { Box } from '../../design-system/components/Box';
 import { useTheme } from '@emotion/react';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const windowDimensions = Dimensions.get('window');
 
 const MenuItem = ({
+  icon,
   shortLabel,
   label,
   isMenuOpen,
 }: {
+  icon: string;
   shortLabel: string;
   label: string;
   isMenuOpen: boolean;
 }) => {
+  
   return (
     <Box direction="horizontal" alignItems="center">
-      <Button label={shortLabel} />
+      <Button icon={icon} label={isMenuOpen ? label : ""} />
       {isMenuOpen && (
         <>
           <Spacer direction="horizontal" gap="$2" />
-          <Typography>{label}</Typography>
         </>
       )}
     </Box>
@@ -72,12 +75,12 @@ export const Menu = () => {
         <MenuOverlay style={{ width: animatedWidth }} />
         <MenuContainer>
           <DefaultFocus>
-            <MenuItem shortLabel="A" label="Page A" isMenuOpen={isMenuOpen} />
+            <MenuItem icon="home" shortLabel="A" label="Page A" isMenuOpen={isMenuOpen} />
           </DefaultFocus>
           <Spacer direction="vertical" gap="$4" />
-          <MenuItem shortLabel="B" label="Page B" isMenuOpen={isMenuOpen} />
+          <MenuItem icon="youtube-play" shortLabel="B" label="Page B" isMenuOpen={isMenuOpen} />
           <Spacer direction="vertical" gap="$4" />
-          <MenuItem shortLabel="C" label="Page C" isMenuOpen={isMenuOpen} />
+          <MenuItem icon="gamepad" shortLabel="C" label="Page C" isMenuOpen={isMenuOpen} />
         </MenuContainer>
       </SpatialNavigationView>
     </SpatialNavigationRoot>

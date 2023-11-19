@@ -39,7 +39,7 @@ function App(): JSX.Element {
     <NavigationContainer>
       <ThemeProvider theme={theme}>
         <GoBackConfiguration />
-        <MenuProvider>
+        <MenuProvider >
           <Container width={dimensions.window.width} height={dimensions.window.height}>
             <Stack.Navigator
               screenOptions={{
