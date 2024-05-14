@@ -11,6 +11,18 @@ type Props = {
   listRef?: MutableRefObject<SpatialNavigationVirtualizedListRef>;
 };
 
+export const ProgramListTopWithTitle = ({ title, listRef }: Props) => {
+  return (
+    <Box direction="vertical">
+      <Typography variant="title" fontWeight="strong">
+        {title}
+      </Typography>
+      <Spacer direction="vertical" gap="$2" />
+      <ProgramsRow listRef={listRef ?? null} />
+    </Box>
+  );
+};
+
 export const ProgramListWithTitle = ({ title, listRef }: Props) => {
   return (
     <Box direction="vertical">

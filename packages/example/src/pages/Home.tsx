@@ -7,16 +7,21 @@ import { Spacer } from '../design-system/components/Spacer';
 import { Typography } from '../design-system/components/Typography';
 import {
   ProgramListWithTitle,
+  ProgramListTopWithTitle,
   ProgramListWithTitleAndVariableSizes,
 } from '../modules/program/view/ProgramListWithTitle';
 import { BottomArrow, TopArrow } from '../design-system/components/Arrows';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Image } from 'react-native';
 
 export const Home = () => {
   return (
     <Page>
       <TitleContainer>
-        <Title variant="title">Hoppix</Title>
+        {/* <Title variant="title">Hello TV</Title> */}
+        <Image
+          source={require('../../assets/logo.png')}
+          style={{ width: 120, height: 80, alignSelf: 'center' }}
+        ></Image>
       </TitleContainer>
       <DefaultFocus>
         <SpatialNavigationScrollView
@@ -27,19 +32,12 @@ export const Home = () => {
           descendingArrowContainerStyle={styles.topArrowContainer}
         >
           <Box padding="$10">
-            <ProgramListWithTitle title="Popular" />
-            <Spacer gap="$6" />
-            <ProgramListWithTitle title="Classics" />
-            <Spacer gap="$6" />
-            <ProgramListWithTitle title="Watch again" />
-            <Spacer gap="$6" />
-            <ProgramListWithTitle title="You may also like..." />
-            <Spacer gap="$6" />
-            <ProgramListWithTitleAndVariableSizes title="Our selection"></ProgramListWithTitleAndVariableSizes>
-            <Spacer gap="$6" />
-            <ProgramListWithTitleAndVariableSizes title="Oscar Winners"></ProgramListWithTitleAndVariableSizes>
-            <Spacer gap="$6" />
-            <ProgramListWithTitleAndVariableSizes title="Child section"></ProgramListWithTitleAndVariableSizes>
+            <ProgramListTopWithTitle title="Top" />
+            <Spacer gap="$12" />
+            <ProgramListWithTitle title="Continue Watching" />
+            <Spacer gap="$12" />
+            <ProgramListWithTitle title="Most watched in your area" />
+            <Spacer gap="$12" />
           </Box>
         </SpatialNavigationScrollView>
       </DefaultFocus>

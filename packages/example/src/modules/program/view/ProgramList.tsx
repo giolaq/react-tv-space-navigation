@@ -19,7 +19,7 @@ import { theme } from '../../../design-system/theme/theme';
 
 const NUMBER_OF_ITEMS_VISIBLE_ON_SCREEN = 7;
 const WINDOW_SIZE = NUMBER_OF_ITEMS_VISIBLE_ON_SCREEN + 8;
-const ROW_PADDING = scaledPixels(70);
+const ROW_PADDING = scaledPixels(90);
 
 export const ProgramList = ({
   orientation,
@@ -39,7 +39,7 @@ export const ProgramList = ({
       <ProgramNode
         programInfo={item}
         onSelect={() => navigation.push('ProgramDetail', { programInfo: item })}
-        label={index.toString()}
+        label={item.title.toString()}
       />
     ),
     [navigation],
@@ -92,9 +92,10 @@ export const ProgramsRow = ({
 };
 
 const Container = styled.View<{ isActive: boolean }>(({ isActive, theme }) => ({
-  backgroundColor: isActive
-    ? theme.colors.background.mainActive
-    : theme.colors.background.mainHover,
+  backgroundColor: 'transparent',
+  // backgroundColor: isActive
+  //   ? theme.colors.background.mainActive
+  //   : theme.colors.background.mainHover,
   padding: theme.spacings.$8,
   borderRadius: scaledPixels(20),
   overflow: 'hidden',

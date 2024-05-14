@@ -4,6 +4,7 @@ import { Animated, Image, View } from 'react-native';
 import { ProgramInfo } from '../domain/programInfo';
 import { useFocusAnimation } from '../../../design-system/helpers/useFocusAnimation';
 import { Typography } from '../../../design-system/components/Typography';
+import { Spacer } from '../../../design-system/components/Spacer';
 
 type ProgramProps = {
   isFocused?: boolean;
@@ -12,8 +13,12 @@ type ProgramProps = {
 };
 
 const Label = ({ label }: { label: string }) => {
-  return <Typography>{label}</Typography>;
+  return <LabelStyled>{label}</LabelStyled>;
 };
+
+const LabelStyled = styled(Typography)(() => ({
+  textAlign: 'center',
+}));
 
 export const Program = React.forwardRef<View, ProgramProps>(
   ({ isFocused = false, programInfo, label }, ref) => {
@@ -22,18 +27,22 @@ export const Program = React.forwardRef<View, ProgramProps>(
     const scaleAnimation = useFocusAnimation(isFocused);
 
     return (
-      <ProgramContainer
-        style={scaleAnimation} // Apply the animated scale transform
-        ref={ref}
-        isFocused={isFocused}
-      >
-        <ProgramImage source={imageSource} accessible />
-        {label ? (
-          <Overlay>
-            <Label label={label} />
-          </Overlay>
-        ) : null}
-      </ProgramContainer>
+      <View>
+        <ProgramContainer
+          style={scaleAnimation} // Apply the animated scale transform
+          ref={ref}
+          isFocused={isFocused}
+        >
+          <ProgramImage source={imageSource} accessible />
+          {/* {label ? (
+            <Overlay>
+              <Label label={label} />
+            </Overlay>
+          ) : null} */}
+        </ProgramContainer>
+        <Spacer gap="$6" />
+        <Label label={label} />
+      </View>
     );
   },
 );
@@ -57,6 +66,6 @@ const ProgramImage = styled(Image)({
 
 const Overlay = styled.View({
   position: 'absolute',
-  bottom: 12,
+  bottom: 22,
   left: 12,
 });

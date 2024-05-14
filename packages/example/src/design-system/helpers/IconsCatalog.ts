@@ -1,4 +1,13 @@
-import { Grid3X3, Home, LayoutDashboard, LayoutGrid, Timer } from 'lucide-react-native';
+import {
+  CircleUser,
+  Grid3X3,
+  Home,
+  LayoutDashboard,
+  LayoutGrid,
+  Timer,
+  Settings,
+  Play,
+} from 'lucide-react-native';
 
 export const iconsCatalog = {
   Home: Home,
@@ -6,6 +15,9 @@ export const iconsCatalog = {
   LayoutGrid: LayoutGrid,
   LayoutDashboard: LayoutDashboard,
   Timer: Timer,
+  CircleUser: CircleUser,
+  Settings: Settings,
+  Play: Play,
 };
 
 export type IconName = keyof typeof iconsCatalog;

@@ -28,9 +28,17 @@ export type RootTabParamList = {
   Home: undefined;
   ProgramGridPage: undefined;
   NonVirtualizedGridPage: undefined;
-  GridWithLongNodesPage: undefined;
-  ListWithVariableSize: undefined;
-  AsynchronousContent: undefined;
+  // GridWithLongNodesPage: undefined;
+  // ListWithVariableSize: undefined;
+  // AsynchronousContent: undefined;
+};
+
+export type UserTabParamList = {
+  Profile: undefined;
+};
+
+export type SettingsTabParamList = {
+  Settings: undefined;
 };
 
 export type RootStackParamList = {
@@ -57,9 +65,6 @@ const TabNavigator = () => {
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="ProgramGridPage" component={ProgramGridPage} />
         <Tab.Screen name="NonVirtualizedGridPage" component={NonVirtualizedGridPage} />
-        <Tab.Screen name="GridWithLongNodesPage" component={GridWithLongNodesPage} />
-        <Tab.Screen name="ListWithVariableSize" component={ListWithVariableSize} />
-        <Tab.Screen name="AsynchronousContent" component={AsynchronousContent} />
       </Tab.Navigator>
     </MenuProvider>
   );
